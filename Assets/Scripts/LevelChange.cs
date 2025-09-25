@@ -15,6 +15,15 @@ public class LevelChange : MonoBehaviour
     {
         
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    //void StartGame()
+    //{
+    //    SceneManager.LoadScene(0);
+    //}
+
 
     public void NextScene()
     {
