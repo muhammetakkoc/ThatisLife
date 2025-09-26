@@ -278,17 +278,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &691934737 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 558517677821941478, guid: bdd8c5be1f830d545a3603b22abdf1fc, type: 3}
-  m_PrefabInstance: {fileID: 8587040597992516321}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aeaf27392a36464594742ef35e6813b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &796364307
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +464,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 691934737}
+      - m_Target: {fileID: 8587040597992516323}
         m_TargetAssemblyTypeName: LevelChange, Assembly-CSharp
         m_MethodName: NextScene
         m_Mode: 1
@@ -948,11 +937,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 558517677821941478, guid: bdd8c5be1f830d545a3603b22abdf1fc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4569767248548847648, guid: bdd8c5be1f830d545a3603b22abdf1fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8587040597992516323}
   m_SourcePrefab: {fileID: 100100000, guid: bdd8c5be1f830d545a3603b22abdf1fc, type: 3}
+--- !u!1 &8587040597992516322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4569767248548847648, guid: bdd8c5be1f830d545a3603b22abdf1fc, type: 3}
+  m_PrefabInstance: {fileID: 8587040597992516321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8587040597992516323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587040597992516322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f604d641fc87981428f2de0644b133da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
