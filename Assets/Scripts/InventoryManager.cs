@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class InventoryPanel : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
-    public GameObject inventoryPanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

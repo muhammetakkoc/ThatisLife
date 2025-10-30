@@ -6,7 +6,7 @@ public class ChopWood : MonoBehaviour
     public KeyCode chopKey = KeyCode.E;
     public float holdTime = 1.2f;
     public Slider chopSlider;
-
+    public GameObject Panel;
     private GameObject interactText;
     private bool playerInRange = false;
     private float timer = 0f;
