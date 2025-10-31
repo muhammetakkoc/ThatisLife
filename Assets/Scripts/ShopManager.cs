@@ -37,6 +37,6 @@ public class ShopManager : MonoBehaviour
     void Refresh()
     {
         if (coinText && InventoryManager.I)
-            coinText.text = "Coins: " + InventoryManager.I.coins;
+            coinText.text = " " + InventoryManager.I.coins;
     }
 }
