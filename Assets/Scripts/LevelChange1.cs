@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
-    
+    public GameObject menuPanel;
+    public GameObject InsPanel;
     void Start()
     {
-        
+        menuPanel.SetActive(true);
+        InsPanel.SetActive(false);
     }
 
     
@@ -41,4 +43,15 @@ public class LevelChange : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+    public void InsButton()
+    {
+        menuPanel.SetActive(false);
+        InsPanel.SetActive(true);
+    }
+    public void InsBack()
+    {
+        menuPanel.SetActive(true);
+        InsPanel.SetActive(false);
+    }
+
 }
