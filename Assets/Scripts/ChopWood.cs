@@ -57,14 +57,25 @@ public class ChopWood : MonoBehaviour
 
     void ChopTree()
     {
+
         choppedTrees++;
+        if (InventoryManager.I) InventoryManager.I.AddWood(1); // <<< EK
+
         Debug.Log("Tree Chopped: " + choppedTrees);
 
         if (interactText) interactText.SetActive(false);
         if (chopSlider) chopSlider.gameObject.SetActive(false);
 
-        active = null; 
+        active = null;
         Destroy(gameObject);
+        //choppedTrees++;
+        //Debug.Log("Tree Chopped: " + choppedTrees);
+
+        //if (interactText) interactText.SetActive(false);
+        //if (chopSlider) chopSlider.gameObject.SetActive(false);
+
+        //active = null; 
+        //Destroy(gameObject);
     }
 
     void ResetProgress(bool releaseActive)

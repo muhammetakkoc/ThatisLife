@@ -36,4 +36,9 @@ public class LevelChange : MonoBehaviour
         int current = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(current - 1);
     }
+
+    public void Shop()
+    {
+        SceneManager.LoadScene(4);
+    }
 }

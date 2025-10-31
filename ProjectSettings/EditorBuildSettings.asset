@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: f1ffd020e8a76ff48bff585f0da54d6c
+  - enabled: 1
+    path: Assets/Scenes/ShopeScene.unity
+    guid: ac2895fd73cedfd478a069e87307a1e5
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
