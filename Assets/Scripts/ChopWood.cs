@@ -12,10 +12,14 @@ public class ChopWood : MonoBehaviour
     private float timer = 0f;
 
     private static ChopWood active = null;   
-    private static int choppedTrees = 0;     
+    private static int choppedTrees = 0;
+    private Animator animator;
+    public InventoryManager inventoryManager;
+    public PlayerMovement playermovement;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         interactText = GameObject.Find("InteractText");
         if (interactText) interactText.SetActive(false);
 
@@ -48,11 +52,19 @@ public class ChopWood : MonoBehaviour
             }
             if (timer >= holdTime)
                 ChopTree();
+            playermovement.isChopping = true;
+
+            Invoke(nameof(StopChopping),1f);
         }
 
       
         if (active == this && Input.GetKeyUp(chopKey))
             ResetProgress(releaseActive: true);
+    }
+
+    void StopChopping()
+    {
+        playermovement.isChopping = false;
     }
 
     void ChopTree()
