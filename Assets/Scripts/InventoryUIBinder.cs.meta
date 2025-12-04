@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: 6f187ae38a29b304facee2684233688c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - panel: {fileID: 1864586029431501627, guid: fba9e9a63607efc4f92fc5c783e695f6, type: 3}
+  - woodText: {instanceID: 0}
+  - fishText: {instanceID: 0}
+  - cropText: {instanceID: 0}
+  - coinText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
