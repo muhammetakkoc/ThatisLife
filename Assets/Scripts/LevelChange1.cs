@@ -6,10 +6,12 @@ public class LevelChange : MonoBehaviour
 {
     public GameObject menuPanel;
     public GameObject InsPanel;
+    
     void Start()
     {
         menuPanel.SetActive(true);
         InsPanel.SetActive(false);
+        
     }
 
     
@@ -42,16 +44,21 @@ public class LevelChange : MonoBehaviour
     public void Shop()
     {
         SceneManager.LoadScene(4);
+        menuPanel.SetActive(false);
+        InsPanel.SetActive(false);
     }
     public void InsButton()
     {
         menuPanel.SetActive(false);
         InsPanel.SetActive(true);
+        
+
     }
     public void InsBack()
     {
         menuPanel.SetActive(true);
         InsPanel.SetActive(false);
+        
     }
 
 }

@@ -39,4 +39,7 @@ public class ShopManager : MonoBehaviour
         if (coinText && InventoryManager.I)
             coinText.text = " " + InventoryManager.I.coins;
     }
+
+    
+  
 }

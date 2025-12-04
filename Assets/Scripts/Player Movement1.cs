@@ -5,63 +5,72 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     private Vector2 moveInput;
     private bool facingRight = true;
-    public bool isChopping=false;
+    public bool isChopping = false;
 
     private Animator animator;
+    private Rigidbody2D rb;
 
-    Rigidbody2D rb;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Yürüme sesi
+    private AudioSource footstepAudio;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        footstepAudio = GetComponent<AudioSource>(); // AudioSource player'a ekli
     }
 
-    
     void Update()
     {
+        // Chop an?nda hareket yok + ses yok
+        if (isChopping)
+        {
+            moveInput = Vector2.zero;
+            animator.Play("choppingwood");
+
+            if (footstepAudio.isPlaying)
+                footstepAudio.Stop();
+
+            return;
+        }
+
         float moveInputX = Input.GetAxisRaw("Horizontal");
         float moveInputY = Input.GetAxisRaw("Vertical");
 
-        moveInput = new Vector2 (moveInputX, moveInputY).normalized;
+        moveInput = new Vector2(moveInputX, moveInputY).normalized;
 
-        //if (chopwood)
-        //{
-        //    animator.Play("choppingwood");
-        //}
-
-        if (moveInput.magnitude > 0.01f)
+        // Animasyonlar
+        if (moveInput.sqrMagnitude > 0.001f)
         {
-            animator.Play("run"); 
+            animator.Play("run");
+
+            // Yürüyorsa ses aç
+            if (!footstepAudio.isPlaying)
+                footstepAudio.Play();
         }
-        else 
+        else
         {
             animator.Play("FarmerIdle");
+
+            // Duruyorsa ses kapa
+            if (footstepAudio.isPlaying)
+                footstepAudio.Stop();
         }
 
-
+        // Flip kontrolü
         if (moveInputX > 0 && !facingRight)
             Flip();
         else if (moveInputX < 0 && facingRight)
             Flip();
-
-        if (isChopping)
-        {
-            animator.Play("choppingwood");
-            rb.linearVelocity = Vector2.zero;
-            return;
-            Debug.Log("agac kesiyor ");
-        }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        
-
         rb.linearVelocity = moveInput * moveSpeed;
-        
     }
-    private void Flip()
+
+    void Flip()
     {
         facingRight = !facingRight;
         Vector3 scale = transform.localScale;

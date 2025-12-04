@@ -5,21 +5,22 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager I;
 
-    
     [HideInInspector] public GameObject panel;
     [HideInInspector] public Text woodText, fishText, cropText, coinText;
 
-    
     public int wood, fish, crop, coins;
+
+    // SADECE CLIP KULLAN
+    public AudioClip coinClip;   // Inspector’dan coin sesini sürükle
 
     void Awake()
     {
         if (I != null && I != this) { Destroy(gameObject); return; }
         I = this;
         DontDestroyOnLoad(gameObject);
-        
+
         if (panel) panel.SetActive(false);
-        RefreshUI(); 
+        RefreshUI();
     }
 
     void Update()
@@ -28,13 +29,29 @@ public class InventoryManager : MonoBehaviour
             panel.SetActive(!panel.activeSelf);
     }
 
-    
     public void AddWood(int x) { wood += x; RefreshUI(); }
     public void AddFish(int x) { fish += x; RefreshUI(); }
     public void AddCrop(int x) { crop += x; RefreshUI(); }
 
     public void SellAll()
     {
+        // Hiç item yoksa hem ses hem sat?? iptal olsun istersen:
+        if (wood == 0 && fish == 0 && crop == 0)
+        {
+            Debug.Log("Sat?lacak bir ?ey yok.");
+            return;
+        }
+
+        //  SES? ÇAL
+        if (coinClip != null && Camera.main != null)
+        {
+            AudioSource.PlayClipAtPoint(coinClip, Camera.main.transform.position);
+        }
+        else
+        {
+            Debug.LogWarning("coinClip ya da Camera.main eksik!");
+        }
+
         coins += wood * 2 + fish * 5 + crop * 3;
         wood = fish = crop = 0;
         RefreshUI();
@@ -50,7 +67,6 @@ public class InventoryManager : MonoBehaviour
 
     public void RefreshUI()
     {
-        
         if (!woodText || !fishText || !cropText || !coinText) return;
 
         woodText.text = "Wood: " + wood;
@@ -59,11 +75,10 @@ public class InventoryManager : MonoBehaviour
         coinText.text = "Coins: " + coins;
     }
 
-    
     public void BindUI(GameObject p, Text w, Text f, Text c, Text coin)
     {
         panel = p; woodText = w; fishText = f; cropText = c; coinText = coin;
-        if (panel) panel.SetActive(false);   
+        if (panel) panel.SetActive(false);
         RefreshUI();
     }
 }
