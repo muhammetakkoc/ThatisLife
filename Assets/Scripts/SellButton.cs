@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class SellButton : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    public void OnClickSell()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (InventoryManager.I != null)
+        {
+            InventoryManager.I.SellAll();
+        }
+        else
+        {
+            Debug.LogWarning("No Inventory manager");
+        }
     }
 }

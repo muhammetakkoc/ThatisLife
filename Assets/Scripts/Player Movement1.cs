@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
 
-    // Yürüme sesi
+    
     private AudioSource footstepAudio;
 
     void Start()
@@ -18,12 +18,12 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        footstepAudio = GetComponent<AudioSource>(); // AudioSource player'a ekli
+        footstepAudio = GetComponent<AudioSource>(); 
     }
 
     void Update()
     {
-        // Chop an?nda hareket yok + ses yok
+        
         if (isChopping)
         {
             moveInput = Vector2.zero;
@@ -40,12 +40,12 @@ public class PlayerMovement : MonoBehaviour
 
         moveInput = new Vector2(moveInputX, moveInputY).normalized;
 
-        // Animasyonlar
+        
         if (moveInput.sqrMagnitude > 0.001f)
         {
             animator.Play("run");
 
-            // Yürüyorsa ses aç
+            
             if (!footstepAudio.isPlaying)
                 footstepAudio.Play();
         }
@@ -53,12 +53,12 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.Play("FarmerIdle");
 
-            // Duruyorsa ses kapa
+            
             if (footstepAudio.isPlaying)
                 footstepAudio.Stop();
         }
 
-        // Flip kontrolü
+        
         if (moveInputX > 0 && !facingRight)
             Flip();
         else if (moveInputX < 0 && facingRight)

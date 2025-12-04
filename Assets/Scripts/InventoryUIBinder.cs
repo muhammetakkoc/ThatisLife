@@ -17,7 +17,7 @@ public class InventoryUIBinder : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("InventoryManager yok! ?lk sahnede olu?tu?undan emin ol.");
+            Debug.LogWarning("no InventoryManager ");
         }
     }
 }

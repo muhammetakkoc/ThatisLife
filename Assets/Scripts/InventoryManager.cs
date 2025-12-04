@@ -10,8 +10,8 @@ public class InventoryManager : MonoBehaviour
 
     public int wood, fish, crop, coins;
 
-    // SADECE CLIP KULLAN
-    public AudioClip coinClip;   // Inspector’dan coin sesini sürükle
+    
+    public AudioClip coinClip;   
 
     void Awake()
     {
@@ -35,10 +35,10 @@ public class InventoryManager : MonoBehaviour
 
     public void SellAll()
     {
-        // Hiç item yoksa hem ses hem sat?? iptal olsun istersen:
+        
         if (wood == 0 && fish == 0 && crop == 0)
         {
-            Debug.Log("Sat?lacak bir ?ey yok.");
+            Debug.Log("there is nothing to sell.");
             return;
         }
 
@@ -49,7 +49,7 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("coinClip ya da Camera.main eksik!");
+            Debug.LogWarning("no coinClip or Camera.main ");
         }
 
         coins += wood * 2 + fish * 5 + crop * 3;

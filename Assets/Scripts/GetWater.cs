@@ -15,13 +15,13 @@ public class GetWater : MonoBehaviour
     private float holdTimer;
     private float hideTimer;
 
-    // ??? EKLEND?
-    private AudioSource waterAudio;       // loop sesi
-    public AudioClip waterFillDoneSound;  // iste?e ba?l?: dolunca k?sa ses
+    
+    private AudioSource waterAudio;       
+    public AudioClip waterFillDoneSound;  
 
     private void Start()
     {
-        waterAudio = GetComponent<AudioSource>(); // EK
+        waterAudio = GetComponent<AudioSource>(); 
         waterGainText.SetActive(false);
     }
 
@@ -36,57 +36,57 @@ public class GetWater : MonoBehaviour
                 waterGainText.SetActive(false);
         }
 
-        // Mesafe d???nda ise sesi durdur
+        
         if (Vector2.Distance(player.position, transform.position) > interactDistance)
         {
             holdTimer = 0f;
             if (progressSlider) progressSlider.value = 0f;
 
             if (waterAudio && waterAudio.isPlaying)
-                waterAudio.Stop();   // EK
+                waterAudio.Stop();   
 
             return;
         }
 
-        // Bas?l? tutma
+        
         if (Input.GetKey(key))
         {
             holdTimer += Time.deltaTime;
 
-            // Su sesi ba?las?n
+            
             if (waterAudio && !waterAudio.isPlaying)
-                waterAudio.Play();   // EK
+                waterAudio.Play();   
 
             if (progressSlider)
                 progressSlider.value = holdTimer / holdTime;
 
             if (holdTimer >= holdTime)
             {
-                // SU EKLEME
+                
                 energyCounter.water += waterAmount;
                 energyCounter.water = Mathf.Clamp(energyCounter.water, 0f, 100f);
 
-                // GUI
+                
                 if (waterGainText) waterGainText.SetActive(true);
                 hideTimer = 2f;
 
-                // Dolma sesi ? EK
+                
                 if (waterFillDoneSound)
                     AudioSource.PlayClipAtPoint(waterFillDoneSound, transform.position);
 
-                // RESET
+                
                 holdTimer = 0f;
                 if (progressSlider) progressSlider.value = 0f;
             }
         }
         else
         {
-            // E tu?u b?rak?ld? ? sesi kapat
+            
             holdTimer = 0f;
             if (progressSlider) progressSlider.value = 0f;
 
             if (waterAudio && waterAudio.isPlaying)
-                waterAudio.Stop();    // EK
+                waterAudio.Stop();    
         }
     }
 }

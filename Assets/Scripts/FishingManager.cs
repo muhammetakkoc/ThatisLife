@@ -17,7 +17,7 @@ public class FishingManager : MonoBehaviour
     private bool isFishing = false;
     private float messageTimer = 0f;
 
-    // Sesler
+    // audios
     public AudioClip successSound;
     public AudioClip failSound;
     public AudioClip fishingLoopSound;
@@ -47,7 +47,7 @@ public class FishingManager : MonoBehaviour
 
         float dist = Vector2.Distance(player.position, transform.position);
 
-        // Mesafe kontrolü
+        // distance check
         if (dist <= interactDistance)
         {
             playerInRange = true;
@@ -62,7 +62,7 @@ public class FishingManager : MonoBehaviour
             return;
         }
 
-        // Zamanl? mesaj geri say?m
+        // timer
         if (messageTimer > 0f)
         {
             messageTimer -= Time.deltaTime;
@@ -70,7 +70,7 @@ public class FishingManager : MonoBehaviour
                 interactText.text = "Press E to Fish";
         }
 
-        // ?lk bas??
+        
         if (playerInRange && Input.GetKeyDown(key))
         {
             isFishing = true;
@@ -94,7 +94,7 @@ public class FishingManager : MonoBehaviour
             }
         }
 
-        // Bas?l? tutma
+        
         if (isFishing && Input.GetKey(key))
         {
             timer += Time.deltaTime;
@@ -106,7 +106,7 @@ public class FishingManager : MonoBehaviour
                 TryCatchFish();
         }
 
-        // B?rak?nca iptal
+        
         if (isFishing && Input.GetKeyUp(key))
         {
             if (interactText)
