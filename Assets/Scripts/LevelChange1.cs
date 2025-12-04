@@ -33,6 +33,7 @@ public class LevelChange : MonoBehaviour
     {
         int current = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(current + 1);
+        Debug.Log("NextScene ça?r?ld?, current index = " + current);
     }
 
     public void PreviousScene()

@@ -217,7 +217,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: d08ebcf05a5e3d737a292577fc84fb87, type: 3}
   m_Resource: {fileID: 8300000, guid: d08ebcf05a5e3d737a292577fc84fb87, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.49
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -548,7 +548,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 758040524}
   InsPanel: {fileID: 1349419730}
-  shopPanel: {fileID: 0}
 --- !u!1 &1349419730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 900942366817151150, guid: b193dca2cd496294d9f147d2718152b1, type: 3}
@@ -1029,7 +1028,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 758040524}
   InsPanel: {fileID: 1349419730}
-  shopPanel: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
